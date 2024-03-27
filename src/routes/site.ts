@@ -4,6 +4,9 @@ import * as people from '../controllers/people';
 
 const router = Router();
 
+router.get('/', (req, res) => {
+  res.send('MysteryPal Backend is Running');
+});
 router.get('/ping', (req, res) => {
   res.json({ pong: true });
 });
