@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node build/server.js",
     "migrate:dev": "prisma migrate dev",
-    "migrate:deploy": "prisma migrate deploy"
+    "migrate:deploy": "prisma migrate deploy",
+    "checkmigrate": "prisma migrate status"
   },
   "keywords": [],
   "author": "",
