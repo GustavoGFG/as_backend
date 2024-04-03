@@ -67,10 +67,11 @@ export const update = async (
 ) => {
   try {
     //
-    if (filters.id) {
+    if (filters.id && filters.id_group && filters.id_event) {
       const person = await prisma.eventPeople.findMany({
         where: { cpf: String(data.cpf) },
       });
+      console.log(`Person: ${person[0].id} - Filter: ${filters.id}`);
       if (person[0].id !== filters.id) return false;
     }
     //
