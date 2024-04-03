@@ -40,7 +40,12 @@ export const add = async (data: PeopleCreateData) => {
       id_event: data.id_event,
     });
     if (!group) return false;
-
+    //
+    const person = await prisma.eventPeople.findFirst({
+      where: { id_event: data.id_event, cpf: data.cpf },
+    });
+    if (person) return false;
+    //
     return await prisma.eventPeople.create({ data });
   } catch (err) {
     return false;

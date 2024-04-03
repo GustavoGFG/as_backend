@@ -110,7 +110,6 @@ export const searchPerson: RequestHandler = async (req, res) => {
     id_event: parseInt(id_event),
     cpf: query.data.cpf,
   });
-  console.log(1);
   console.log(personItem);
   if (personItem && personItem.matched) {
     const matchId = decryptMatch(personItem.matched);
@@ -119,7 +118,6 @@ export const searchPerson: RequestHandler = async (req, res) => {
       id: matchId,
     });
 
-    console.log(2);
     if (personMatched) {
       return res.json({
         person: { id: personItem.id, name: personItem.name },
