@@ -66,6 +66,14 @@ export const update = async (
   data: PeopleUpdateData
 ) => {
   try {
+    //
+    if (filters.id) {
+      const person = await prisma.eventPeople.findMany({
+        where: { cpf: String(data.cpf) },
+      });
+      if (person[0].id !== filters.id) return false;
+    }
+    //
     return await prisma.eventPeople.updateMany({ where: filters, data });
   } catch (err) {
     return false;
